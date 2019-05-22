@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Articles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="articleDetailsCard" *ngIf='articleDetails; else goHome'>
+    <ion-img *ngIf='articleDetails.urlToImage' [src]='articleDetails.urlToImage'></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{ articleDetails.publishedAt | date:'medium' }}</ion-card-subtitle>
+      <ion-card-title>{{ articleDetails.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Description :</p>
+      <p>{{ articleDetails.description }}</p>
+      <hr>
+      <b class="author">Author : </b>
+      <b class="author">{{ articleDetails.author }}</b>
+      <hr>
+      <i>Source : </i>
+      <i>{{ articleDetails.source.name }}</i>
+      <hr>
+      <p>Url :</p>
+      <p>{{ articleDetails.url }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #goHome>
+    <ion-button expand="block" routerLink='/home'>Go Home</ion-button>
+  </ng-template>
+
+</ion-content>
