@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-img class="logo" src='../../../assets/logo_yoobic.svg'></ion-img>
+</ion-content>
+
+<ion-footer>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">E-mail</ion-label>
+          <ion-input type="email" placeholder="user@example.com"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input type="password" placeholder="********" clearInput></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" routerLink='/home'>Login</ion-button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <div class="more">
+          <p class="ion-float-left" routerLink='/signup'>Sign Up</p>
+          <p class="ion-float-right">Forgot password ?</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+      
+  <ion-toolbar>
+
+    <p class="footer">Terms and conditions</p>
+  </ion-toolbar>
+</ion-footer>
