@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      News
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor='let article of listOfArticles?.articles' (click)='onGoToNewsDetailsPage(article)'>
+      <ion-img *ngIf='article.urlToImage' [src]='article.urlToImage'></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>{{ article.publishedAt | date:'medium' }}</ion-card-subtitle>
+        <ion-card-title>{{ article.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ article.description }}</p>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
