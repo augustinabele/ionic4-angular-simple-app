@@ -4,14 +4,14 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      News
+      {{ listOfArticles[0]?.source.name }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card *ngFor='let article of listOfArticles' (click)='onGoToNewsDetailsPage(article)'>
-      <ion-img *ngIf='article.urlToImage' [src]='article.urlToImage' (error)="this.src='https://picsum.photos/200/300'"></ion-img>
+      <ion-img *ngIf='article.urlToImage' [src]='article.urlToImage' onError="this.src='https://picsum.photos/200/300'"></ion-img>
       <ion-card-header>
         <ion-card-subtitle>{{ article.publishedAt | date:'medium' }}</ion-card-subtitle>
         <ion-card-title>{{ article.title }}</ion-card-title>

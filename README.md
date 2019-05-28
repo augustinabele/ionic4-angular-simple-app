@@ -1,8 +1,20 @@
+## Getting Started
 
-## How to run the project :
-  + Go into the project directory
-  + Run : ionic serve
-  + Open http://localhost:8100 in your browser
+To start build the app :
+
+```bash
+git clone https://github.com/augustinabele/ionic4-angular-simple-app.git my-app
+cd my-app
+git remote rm origin
+```
+
+and run:
+
+```bash
+npm install
+npm start
+Enjoy !
+```
 
 # -------------------- SUBJECT --------------------
 

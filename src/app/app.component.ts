@@ -17,6 +17,11 @@ export class AppComponent {
       icon: 'paper'
     },
     {
+      title: 'Medias',
+      url: '/sources',
+      icon: 'globe'
+    },
+    {
       title: 'About',
       url: '/about',
       icon: 'information-circle-outline'

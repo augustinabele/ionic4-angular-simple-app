@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Medias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item *ngFor='let source of listOfSources?.sources' (click)='onGoToNewsSourcePage(source.id)'>
+        <ion-label>{{ source.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,30 +1,33 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NewsService } from '../../news.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-custom-source',
+  templateUrl: './custom-source.page.html',
+  styleUrls: ['./custom-source.page.scss'],
 })
-export class HomePage implements OnInit {
+export class CustomSourcePage implements OnInit {
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   public listOfArticles: any[];
+  public sourceId: string;
   public currentApiPage: number;
 
   constructor(
+    private route: ActivatedRoute,
     private newsService: NewsService,
-    private router: Router
+    private router: Router,
     ){
     this.currentApiPage = 1;
     this.listOfArticles = [];
+    this.sourceId = this.route.snapshot.paramMap.get('id');
   }
 
   public ngOnInit(): void {
-    this.getNewsHeadlines();
+    this.getNewsFromSource();
   }
 
   public onGoToNewsDetailsPage(article: any): void {
@@ -32,9 +35,9 @@ export class HomePage implements OnInit {
     this.router.navigate(['/news-details']);
   }
 
-  public getNewsHeadlines(): void {
+  public getNewsFromSource(): void {
     let reqArticles: any;
-    this.newsService.getData('top-headlines?country=gb'
+    this.newsService.getData('top-headlines?sources=' + this.sourceId
       + '&pageSize=4&page=' + this.currentApiPage).subscribe(data => {
         reqArticles = data;
 
@@ -50,11 +53,7 @@ export class HomePage implements OnInit {
     setTimeout(() => {
       console.log('Done');
       event.target.complete();
-      this.getNewsHeadlines();
+      this.getNewsFromSource();
     }, 100);
   }
 }
-
-
-
-

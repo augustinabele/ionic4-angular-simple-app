@@ -26,6 +26,13 @@ const routes: Routes = [
     path: 'about',
     loadChildren: './pages/about/about.module#AboutPageModule'
   },
+  { path: 'sources',
+    loadChildren: './pages/sources/sources.module#SourcesPageModule'
+  },
+  {
+    path: 'custom-source/:id',
+    loadChildren: './pages/custom-source/custom-source.module#CustomSourcePageModule'
+  },
   {
     path: '**',
     redirectTo: 'login',

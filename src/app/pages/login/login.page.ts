@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(public alertController: AlertController) {}
 
   ngOnInit() {
   }
 
+  async forgotPasswordAlert() {
+    const alert = await this.alertController.create({
+      header: 'Forgot password ?',
+      message: 'Wathever your password, you\'re welcome !',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 }
