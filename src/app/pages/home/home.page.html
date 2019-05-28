@@ -10,8 +10,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-card *ngFor='let article of listOfArticles?.articles' (click)='onGoToNewsDetailsPage(article)'>
-      <ion-img *ngIf='article.urlToImage' [src]='article.urlToImage'></ion-img>
+    <ion-card *ngFor='let article of listOfArticles' (click)='onGoToNewsDetailsPage(article)'>
+      <ion-img *ngIf='article.urlToImage' [src]='article.urlToImage' (error)="this.src='https://picsum.photos/200/300'"></ion-img>
       <ion-card-header>
         <ion-card-subtitle>{{ article.publishedAt | date:'medium' }}</ion-card-subtitle>
         <ion-card-title>{{ article.title }}</ion-card-title>
@@ -20,4 +20,11 @@
         <p>{{ article.description }}</p>
       </ion-card-content>
     </ion-card>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more articles...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
